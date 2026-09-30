@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PocketSmart AI</title>
+</head>
+<body>
+
+    <h1>PocketSmart AI</h1>
+    <h2>Your Smart Budget & Recommendation Assistant</h2>
+
+    <p>Manage your income and expenses easily with PocketSmart AI.</p>
+
+    <h3>Enter Your Details</h3>
+
+    <label>Monthly Income:</label>
+    <input type="number" id="income" placeholder="Enter income">
+
+    <br><br>
+
+    <label>Total Expenses:</label>
+    <input type="number" id="expenses" placeholder="Enter expenses">
+
+    <br><br>
+
+    <button onclick="calculateBudget()">Calculate Budget</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateBudget() {
+            let income = Number(document.getElementById("income").value);
+            let expenses = Number(document.getElementById("expenses").value);
+
+            let balance = income - expenses;
+
+            if (income <= 0) {
+                document.getElementById("result").innerText =
+                    "Please enter your income.";
+            } 
+            else if (expenses < 0) {
+                document.getElementById("result").innerText =
+                    "Please enter valid expenses.";
+            } 
+            else {
+                document.getElementById("result").innerText =
+                    "Your remaining balance is ₹" + balance;
+            }
+        }
+    </script>
+
+</body>
+</html>
